@@ -1,49 +1,65 @@
-# Astro Starter Kit: Basics
+# Pomodoro Dungeon Crawler
 
-```sh
-pnpm create astro@latest -- --template basics
+> "Defeat your tasks, one dungeon at a time."
+
+A desktop (and soon mobile) application built with Tauri and Astro that turns your todo list into monsters you must defeat with Pomodoro focus sessions.
+
+## 🎮 Mechanics
+
+- Each task is a monster with HP
+- Work for 25 minutes (Pomodoros) to deal damage
+- Lose focus (alt-tab) and the monster counterattacks
+- Gain XP and gold upon completing tasks
+- Weekly bosses for large missions
+
+## 🛠️ Stack
+
+- **Frontend**: Astro + Vanilla JS
+- **Backend**: Rust (Tauri)
+- **Persistence**: SQLite
+- **Targets**: Windows, Linux, macOS (and thinking about Android/iOS )
+
+## 🚀 Development
+
+```bash
+# Clone
+git clone https://github.com/mazmorrdev/pomodoro-dungeon-crawler
+cd pomodoro-dungeon-crawler
+
+# Install dependencies
+npm install
+
+# Run in development mode
+cargo tauri dev
+
+# Build for production
+cargo tauri build
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 📁 Structure
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+```
+src/
+├── components/     # Timer, monster, task list
+├── store/          # State (XP, gold, progress)
+├── styles/         # Tailwind + custom CSS
+└── lib/            # Utilities (Pomodoro, damage calc)
+src-tauri/
+├── src/            # Rust backend
+└── Cargo.toml
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 📝 TODO
 
-## 🧞 Commands
+- [ ] Functional Pomodoro timer
+- [ ] Monster system (HP, attack, defense)
+- [ ] Focus loss penalty
+- [ ] SQLite persistence
+- [ ] Shop with skins/armor
+- [ ] Weekly boss mode
+- [ ] Achievements system
+- [ ] Builds for Windows/Linux/macOS
 
-All commands are run from the root of the project, from a terminal:
+## 📄 License
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-Hi There! Welcome to Pomodoro Dungeon Crawler
-"Beat your tasks, one dungeon at a time"m
+AGPL-3.0
