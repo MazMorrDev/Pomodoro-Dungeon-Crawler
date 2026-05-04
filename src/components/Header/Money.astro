@@ -1,0 +1,24 @@
+---
+import { Image } from "astro:assets";
+import PomodoroCoinImage from "../../../public/favicon.svg";
+---
+
+<div class="container">
+    <Image
+        src={PomodoroCoinImage}
+        alt="Shows your profile"
+        class="profile-image"
+        width={50}
+        height={50}
+        loading="eager"
+        quality="high"
+    />
+    <p>0 PC</p>
+</div>
+
+<style>
+    .container{
+        display: flex;
+        align-items: c;
+    }
+</style>

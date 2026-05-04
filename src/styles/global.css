@@ -30,7 +30,7 @@ body {
   font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
   line-height: 1.7;
   color: var(--primary-white);
-  background-color: var(--primary-black);
+  background-color: var(--gray-dark);
   min-height: 100vh;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

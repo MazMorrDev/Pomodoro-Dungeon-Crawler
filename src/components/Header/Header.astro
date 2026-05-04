@@ -5,20 +5,21 @@ import Profile from "./Profile.astro";
 ---
 
 <div class="header-content">
-    <Profile class="header-item"/>
-    <ExperienceBar class="header-item"/>
-    <Money class="header-item"/>
+    <Profile class="header-item" />
+    <ExperienceBar class="header-item" />
+    <Money class="header-item" />
 </div>
 
 <style>
-    .header-content{
+    .header-content {
         display: inline-flex;
-        justify-items:center;
+        justify-items: center;
         align-items: center;
         width: 100%;
+        background-color: var(--tertiary-black);
     }
-    .header-item{
+    .header-item {
         margin-left: 5%;
-        margin-right: 50%;
+        margin-right: 5%;
     }
 </style>

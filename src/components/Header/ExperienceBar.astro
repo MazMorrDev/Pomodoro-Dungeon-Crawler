@@ -1,33 +1,67 @@
-<div class="experience-bar">
-    <div class="progress-bar" style="width: 0%;">
-        <span class="progress-text">0%</span>
-    </div>
+<div class="experience-container">
+    <div class="progress-bar" style="width: 0%;"></div>
+    <span class="progress-text">0%</span>
 </div>
+<button id="start-button">Iniciar Progreso</button>
 
 <style>
-    .experience-bar {
+    .experience-container {
         width: 100%;
         background-color: aliceblue;
         border-radius: 10px;
-        overflow: hidden;
         height: 30px;
         margin-bottom: 20px;
+        position: relative;
+        overflow: hidden;
     }
-
     .progress-bar {
+        position: absolute;
+        left: 0;
+        top: 0;
         height: 100%;
-        background: linear-gradient(90deg, #00ff08, #45a049);
+        background: linear-gradient(90deg, #78d67b, #57b43b, #29772d);
         border-radius: 10px;
         transition: width 0.5s ease-in-out;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 20%;
+        z-index: 1;
+        width: 0%;
     }
-
     .progress-text {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
         color: black;
         font-weight: bold;
         font-family: Arial, sans-serif;
     }
 </style>
+
+<script>
+    import { invoke } from "@tauri-apps/api/core";
+    import { listen } from "@tauri-apps/api/event";
+
+    // Tipado del payload que envía Rust
+    interface ProgressPayload {
+        percentage: number;
+    }
+
+    // Referencias a elementos del DOM
+    const bar = document.querySelector<HTMLElement>(".progress-bar");
+    const text = document.querySelector<HTMLElement>(".progress-text");
+    const btn = document.getElementById("start-button");
+
+    // Asignar evento al botón si existe
+    if (btn) {
+        btn.onclick = async () => {
+            await invoke("start_work");
+        };
+    }
+
+    // Escuchar actualizaciones de progreso
+    listen<ProgressPayload>("progress-update", (event) => {
+        const p = event.payload.percentage;
+        if (bar) bar.style.width = `${p}%`;
+        if (text) text.textContent = `${p}%`;
+    });
+</script>
