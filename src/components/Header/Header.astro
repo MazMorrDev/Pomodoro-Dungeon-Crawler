@@ -1,0 +1,24 @@
+---
+import ExperienceBar from "./ExperienceBar.astro";
+import Money from "./Money.astro";
+import Profile from "./Profile.astro";
+---
+
+<div class="header-content">
+    <Profile class="header-item"/>
+    <ExperienceBar class="header-item"/>
+    <Money class="header-item"/>
+</div>
+
+<style>
+    .header-content{
+        display: inline-flex;
+        justify-items:center;
+        align-items: center;
+        width: 100%;
+    }
+    .header-item{
+        margin-left: 5%;
+        margin-right: 50%;
+    }
+</style>

@@ -1,0 +1,33 @@
+<div class="experience-bar">
+    <div class="progress-bar" style="width: 0%;">
+        <span class="progress-text">0%</span>
+    </div>
+</div>
+
+<style>
+    .experience-bar {
+        width: 100%;
+        background-color: aliceblue;
+        border-radius: 10px;
+        overflow: hidden;
+        height: 30px;
+        margin-bottom: 20px;
+    }
+
+    .progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, #00ff08, #45a049);
+        border-radius: 10px;
+        transition: width 0.5s ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20%;
+    }
+
+    .progress-text {
+        color: black;
+        font-weight: bold;
+        font-family: Arial, sans-serif;
+    }
+</style>

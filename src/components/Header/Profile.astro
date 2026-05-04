@@ -1,0 +1,18 @@
+---
+import { Image } from "astro:assets";
+import profileImage from "../../assets/astro.svg";
+---
+
+<div class="container">
+    <Image
+        src={profileImage}
+        alt="Profile Image"
+        class="profile-image"
+        width={150}
+        height={150}
+        loading="eager"
+        quality="high"
+    />
+</div>
+
+<style></style>
